@@ -1,0 +1,236 @@
+
+* {
+    font-family: 'Avenir', 'Avenir Next Cyr', 'Config', 'Microsoft YaHei';
+}
+
+a {
+    color: #1772d0;
+    text-decoration: none;
+}
+  
+a:focus, a:hover {
+    color: #f09228;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    position: relative;
+    margin: 16px 100px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+p span {
+    font-weight: 600;
+}
+
+#main {
+    width: 1000px;
+    margin: 0px auto;
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+
+#title {
+    margin: 32px;
+    color: black;
+    font-size: 48px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#authors {
+    margin: 8px 32px;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#authors div {
+    margin: 0px 16px;
+}
+
+#institution {
+    margin: 8px 32px;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#institution div {
+    margin: 0px 16px;
+}
+
+#abstract {
+    position: relative;
+    margin: 32px;
+    padding: 16px 24px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: justify;
+    background-color: rgb(240, 242, 245);
+}
+
+#abstract::before {
+    content: "Abstract:";
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+#abstract::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 0px;
+    width: 3px;
+    height: 100%;
+    background-color: rgb(32, 163, 196);
+}
+
+#links {
+    margin: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#links a {
+    margin: 0px 8px;
+    padding: 8px 16px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: rgb(32, 163, 196);
+}
+
+#links a:hover {
+    background-color: rgb(48, 179, 212);
+}
+
+#links a.disabled {
+    background-color: rgb(192, 192, 192);
+}
+
+#links a.disabled:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+#links a::before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    margin-right: 8px;
+}
+
+#links #paper::before {
+    content: "\e000";
+}
+
+#links #arxiv::before {
+    content: "\e001";
+}
+
+#links #code::before {
+    content: "\e002";
+}
+
+#links #video::before {
+    content: "\e003";
+}
+
+.section {
+    margin: 64px 0px 16px 0px;
+    color: black;
+    font-size: 32px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+/* .section::before {
+    content: "";
+    position: relative;
+    left: -32px;
+    width: 2px;
+    height: 32px;
+    background-color: rgb(32, 163, 196);
+}
+
+.section::after {
+    content: "";
+    position: relative;
+    right: -32px;
+    width: 2px;
+    height: 32px;
+    background-color: rgb(32, 163, 196);
+} */
+
+.figure {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.figure div {
+    margin-top: 4px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#bottombar {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    width: 80%;
+    padding: 0px 10%;
+    background-color: rgb(32, 163, 196);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+#bottombar div {
+    color: rgb(220, 241, 247);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#bottombar div span {
+    font-weight: 700;
+}

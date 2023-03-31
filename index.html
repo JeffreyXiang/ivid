@@ -1,0 +1,101 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>3D-aware Image Generation using 2D Diffusion Models</title>
+        <link rel="icon" href="/favicon.png">
+        <link rel="stylesheet" href="./fonts/avenir-next/stylesheet.css">
+        <link rel="stylesheet" href="./icons/style.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <div id="title">
+                3D-aware Image Generation using 2D Diffusion Models
+            </div>
+            <div id="authors">
+                <div><a href="https://jeffreyxiang.github.io">Jianfeng Xiang</a><sup>1,2</sup></div>
+                <div><a href="https://jlyang.org">Jiaolong Yang</a><sup>2</sup></div>
+                <div><a href="https://github.com/hbb1">Binbin Huang</a><sup>3,2</sup></div>
+                <div><a href="https://www.microsoft.com/en-us/research/people/xtong/">Xin Tong</a><sup>2</sup></div>
+            </div>
+            <div id="institution">
+                <div><sup>1</sup><a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a></div>
+                <div><sup>2</sup><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a></div>
+                <div><sup>3</sup><a href="https://www.shanghaitech.edu.cn/eng/">ShanghaiTech University</a></div>
+            </div>
+            <div id="abstract">
+                In this paper, we introduce a novel 3D-aware image generation method that leverages 2D diffusion models.
+                We formulate the 3D-aware image generation task as multiview 2D image set generation,
+                and further to a sequential unconditional–conditional multiview image generation process.
+                This allows us to utilize 2D diffusion models to boost the generative modeling power of the method.
+                Additionally, we incorporate depth information from monocular depth estimators to construct the training data for the conditional diffusion model using only still images.
+                We train our method on a large-scale dataset, i.e., ImageNet, which is not addressed by previous methods.
+                It produces high-quality images that significantly outperform prior methods.
+                Furthermore, our approach showcases its capability to generate instances with large view angles,
+                even though the training images are diverse and unaligned, gathered from “in-the-wild” real-world environments.
+            </div>
+            <div id="links">
+                <a id="paper" class="disabled">Paper</a>
+                <a id="arxiv" class="disabled">Arxiv</a>
+                <a id="code" class="disabled">Code</a>
+                <a id="video" class="disabled">Video</a>
+            </div>
+            <div class="section">Results</div>
+            <div class="figure">
+                <video width="1024px" height="384px" autoplay="" controls="" muted="" loop="" src="./videos/imagenet_128.mp4"></video>
+                <div>Generated 128×128 samples on ImageNet.</div>
+            </div>
+            <div class="figure">
+                <video width="1024px" height="128px" autoplay="" controls="" muted="" loop="" src="./videos/imagenet_360degree.mp4"></video>
+                <div>Generated 360° samples on ImageNet.</div>
+            </div>
+            <div class="figure">
+                <video width="1024px" height="512px" autoplay="" controls="" muted="" loop="" src="./videos/imagenet_256.mp4"></video>
+                <div>Generated 256×256 samples on ImageNet.</div>
+            </div>
+            <div class="figure">
+                <video width="1024px" height="384px" autoplay="" controls="" muted="" loop="" src="./videos/other128.mp4"></video>
+                <div>Generated 128×128 samples on SDIP Dogs, SDIP Elephants, and LSUN Horses.</div>
+            </div>
+            <div class="section">Framework</div>
+            <p>
+                We propose <span>IVID</span> (<span>I</span>terative <span>Vi</span>ew <span>D</span>iffusion). The key idea of our method is to formulate the 3D-aware image generation task as multiview 2D image set generation.
+                Our assumption is that the distribution of 3D assets, is equivalent to the joint distribution of its
+                corresponding multiview images. This assumption is derived from the bijective correspondence
+                between 3D assets and their multiview projections, given a sufficient number of views.
+                To generate a set of multiview images follow their joint distribution, we then factorized it into
+                the multiplication of an unconditional distribution and a series of conditional distributions with the chain rule of probability.
+            </p>
+            <p style="font-family: 'Times New Roman';">
+                \[
+                \begin{split}
+                    q_a(\mathbf x)=\ &q_i(\Gamma(\mathbf x, \boldsymbol\pi_0))\cdot\\
+                    &q_i(\Gamma(\mathbf x, \boldsymbol\pi_1)|\Gamma(\mathbf x, \boldsymbol\pi_0))\cdot\\
+                    &\cdots\\
+                    &q_i(\Gamma(\mathbf x, \boldsymbol\pi_N)|\Gamma(\mathbf x, \boldsymbol\pi_0),\cdots,\Gamma(\mathbf x, \boldsymbol\pi_{N-1}))
+                \end{split}
+                \]
+            </p>
+            <p>
+                In practice, however, multiview images are also difficult to obtain. To use unstructured 2D image collections,
+                we construct training data using depth-based image warping. Then, two diffusion models are trained
+                to fit the unconditional and conditional distributions, respectively.
+            </p>
+            <div class="figure">
+                <img src="./imgs/framework.svg" width="600px">
+            </div>
+            <p>
+                Our method contains two diffusion models \(\mathcal{G}_u\) and \(\mathcal{G}_c\).
+                \(\mathcal{G}_u\) is an unconditional model for randomly generating the first view,
+                and \(\mathcal{G}_c\) is a conditional generator for novel views.
+                With aggregated conditioning, multiview images are obtained iteratively by refining and completing previously synthesized views.
+            </p>
+        </div>
+        <div id="bottombar">
+            <div>3D-aware Image Generation using 2D Diffusion Models</div>
+            <div>Template designed by <span>Jianfeng Xiang</span>.</div>
+        </div>
+    </body>
+</html>
