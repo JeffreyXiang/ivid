@@ -1,0 +1,59 @@
+{
+    "backbone": {
+        "name": "AdmUnet2d",
+        "args": {
+            "image_size": 128,
+            "in_channels": 10,
+            "out_channels": 4,
+            "model_channels": 128,
+            "num_res_blocks": 2,
+            "num_classes": null,
+            "has_null_class": false,
+            "channel_mult": [1, 1, 2, 3, 4],
+            "attention_resolutions": [32, 16, 8],
+            "num_groups": 32,
+            "num_heads": null,
+            "num_head_channels": 64,
+            "dropout": 0.0,
+            "use_fp16": true
+        }
+    },
+    "framework": {
+        "name": "InpaintCFG",
+        "args": {
+            "timesteps": 1000,
+            "beta_schedule": "linear",
+            "p_uncond": 0.1,
+            "p_uncond_img": 0
+        }
+    },
+    "dataset": {
+        "name": "SingleCategoryWarp",
+        "args": {
+            "image_size": 128,
+            "normalize": true,
+            "normalize_depth": true,
+            "prepocess_depth": "z_buffer",
+            "near": 0.5,
+            "far": 100,
+            "augments": ["prewarp_noise", "blur", "erode_rgb"]
+        }
+    },
+    "trainer": {
+        "name": "InpaintTrainer",
+        "args": {
+            "max_steps": 1000000,
+            "batch_size_per_gpu": 8,
+            "batch_split": 1,
+            "learning_rate": 1e-4,
+            "weight_decay": 0.0,
+            "ema_rate": [0.9999],
+            "fp16_mode": "inflat_all",
+            "fp16_scale_growth": 1e-3,
+            "finetune_ckpt": null,
+            "i_log": 500,
+            "i_sample": 10000,
+            "i_save": 50000
+        }
+    }
+}

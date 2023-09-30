@@ -1,0 +1,26 @@
+name: ivid
+channels:
+  - pytorch
+dependencies:
+  - python >= 3.8
+  - pip
+  - numpy>=1.20
+  - pillow
+  - scipy
+  - pytorch=1.11.0
+  - torchvision=0.12.0
+  - cudatoolkit=11.3
+  - pip:
+    - einops
+    - imageio
+    - imageio-ffmpeg
+    - tqdm
+    - easydict
+    - opencv-python
+    - torchinfo==1.7.1
+    - mlflow
+    - azureml-mlflow
+    - moderngl
+    - pyglm
+    - plyfile
+    - torch_fidelity
