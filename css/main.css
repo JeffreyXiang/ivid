@@ -80,6 +80,17 @@ p span {
     margin: 0px 16px;
 }
 
+#conference {
+    margin: 16px 32px;
+    color: gray;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
 #abstract {
     position: relative;
     margin: 32px;
@@ -210,6 +221,20 @@ p span {
     color: black;
     font-size: 16px;
     font-weight: 400;
+}
+
+.bibtex {
+    margin: 32px 96px;
+    padding: 0px 24px;
+    color: black;
+    font-family: consolas, monospace;
+    white-space: pre;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgb(240, 242, 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #bottombar {

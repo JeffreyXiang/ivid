@@ -25,6 +25,9 @@
                 <div><sup>2</sup><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a></div>
                 <div><sup>3</sup><a href="https://www.shanghaitech.edu.cn/eng/">ShanghaiTech University</a></div>
             </div>
+            <div id="conference">
+                ICCV 2023
+            </div>
             <div id="abstract">
                 In this paper, we introduce a novel 3D-aware image generation method that leverages 2D diffusion models.
                 We formulate the 3D-aware image generation task as multiview 2D image set generation,
@@ -40,7 +43,7 @@
                 <a id="paper" href="https://arxiv.org/pdf/2303.17905.pdf">Paper</a>
                 <a id="arxiv" href="https://arxiv.org/abs/2303.17905">Arxiv</a>
                 <a id="code" href="https://github.com/JeffreyXiang/ivid">Code</a>
-                <a id="video" class="disabled">Video</a>
+                <!-- <a id="video" class="disabled">Video</a> -->
             </div>
             <div class="section">Results</div>
             <div class="figure">
@@ -91,6 +94,17 @@
                 \(\mathcal{G}_u\) is an unconditional model for randomly generating the first view,
                 and \(\mathcal{G}_c\) is a conditional generator for novel views.
                 With aggregated conditioning, multiview images are obtained iteratively by refining and completing previously synthesized views.
+            </p>
+            <div class="section">Citation</div>
+            <p class="bibtex">
+@inproceedings{xiang2023ivid,
+    title={3D-aware Image Generation using 2D Diffusion Models},
+    author={Xiang, Jianfeng and Yang, Jiaolong and Huang, Binbin and Tong, Xin},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {2383-2393}
+}
             </p>
         </div>
         <div id="bottombar">
