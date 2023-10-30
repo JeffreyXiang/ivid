@@ -175,6 +175,10 @@ p span {
     content: "\e002";
 }
 
+#links #poster::before {
+    content: "\e004";
+}
+
 #links #video::before {
     content: "\e003";
 }
